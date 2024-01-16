@@ -1,0 +1,169 @@
+<html>
+	<head>
+		<title>Scoring Calculator</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://file-hosting.dashnexpages.net/airevivotest/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="https://file-hosting.dashnexpages.net/airevivotest/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		
+		<div id="wrapper">
+<!-- Header -->
+  <header id="header">
+    <div class="logo">
+      <span class="icon"> 
+        <img src="https://airevivotest.dashnexpages.net/images/Asset-2.svg" href="https://airevivotest.dashnexpages.net/jaimeriverahome/#" alt="Icon">
+      </span>
+    </div>
+	</header>
+
+			<!-- Calculator -->
+
+	<style>
+
+form {
+  width: 300px; 
+  padding: 10px 0;
+}
+
+input[type="checkbox"] {
+  float: left;
+}
+
+label {
+  display: block;
+  margin-left: 40px;  
+}
+
+input[type="number"] {
+  display: inline-block;
+  width: 40px;
+}
+
+label[for^="minutes"],
+label[for^="days"], 
+label[for^="musicians"] {
+  display: inline-block;
+  width: 100px;
+  margin-left: 5px;
+}
+
+button[type="button"], 
+button[type="reset"] {
+  float: right;
+  margin-left: 10px;
+}
+
+#total {
+  float: left;
+}
+
+button[type="submit"] {
+  display: block;
+  margin: 10px auto;
+}
+
+	
+	</style>	
+			
+  <article id="getQuote">
+<h2>Music Production Quote</h2>
+
+		<form>
+
+  <input type="checkbox" id="leadSheet">
+  <label for="leadSheet">Lead Sheet</label><br>
+
+  <input type="checkbox" id="orchestration">
+  <label for="orchestration">Orchestration</label><br>  
+
+  <input type="checkbox" id="recording">
+  <label for="recording">Recording</label><br>
+
+  <input type="checkbox" id="mixing">
+  <label for="mixing">Mixing</label><br>
+
+  <input type="checkbox" id="mastering">
+  <label for="mastering">Mastering</label><br>
+
+  <label for="minutes">Minutes:</label>
+  <input style="color:black" type="number" id="minutes" value="0"><br>
+
+  <label for="days">Days:</label>  
+  <input style="color:black" type="number" id="days" value="0"><br>
+
+			<label for="musicians">Number of <p>musicians:</p></label>
+  <input style="color:black" type="number" id="musicians" value="0"><br>
+	  </form>
+  <button type="reset">Reset</button>
+  <button type="button" onclick="calculateTotal()">Calculate Quote</button>
+
+  <p>Subtotal: <span id="subtotal"></span></p>
+  <p>Total: <span id="total"></span></p>
+
+  <button type="submit">Order Now</button>
+
+
+  </article>
+<!-- Script -->
+<script>
+function calculateTotal() {
+
+  let subtotal = 0;
+
+  const leadSheet = document.getElementById("leadSheet").checked;
+  const orchestration = document.getElementById("orchestration").checked;
+  const recording = document.getElementById("recording").checked;
+  const mixing = document.getElementById("mixing").checked;
+  const mastering = document.getElementById("mastering").checked;
+
+  const minutes = document.getElementById("minutes").value;
+  const days = document.getElementById("days").value;
+  const musicians = document.getElementById("musicians").value;
+
+  if (leadSheet) {
+    subtotal += minutes * 250; 
+  }
+
+  if (orchestration) {
+    subtotal += minutes * 350;
+  }
+
+  if (recording) {
+    subtotal += days * 1000;
+    subtotal += days * musicians * 300;
+  }
+
+  if (mixing) {
+    subtotal += 500;
+  }
+
+  if (mastering) {
+    subtotal += 300;
+  }
+
+  const tax = subtotal * 0.3;
+  const total = subtotal + tax;
+
+  document.getElementById("subtotal").textContent = subtotal;
+  document.getElementById("total").textContent = total;
+
+}
+
+    </script></div>
+		
+		
+		<!-- BG -->
+			<div id="bg"></div>
+
+<!-- Scripts -->
+			<script src="https://file-hosting.dashnexpages.net/airevivotest/assets/js/jquery.min.js"></script>
+			<script src="https://file-hosting.dashnexpages.net/airevivotest/assets/js/browser.min.js"></script>
+			<script src="https://file-hosting.dashnexpages.net/airevivotest/assets/js/breakpoints.min.js"></script>
+			<script src="https://file-hosting.dashnexpages.net/airevivotest/assets/js/util.js"></script>
+			<script src="https://file-hosting.dashnexpages.net/airevivotest/assets/js/main.js"></script>
+
+	
+
+		</html>
